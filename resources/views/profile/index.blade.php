@@ -3,11 +3,11 @@
 
     <div class="grid grid-cols-[2fr_8fr] max-h-48 w-full px-8 py-8">
         <div class='max-h-48 flex justify-center align-center'>
-            <img class="max-h-36 rounded-full" src="{{ asset('images/profilfotos/29432562_10216370851042621_1597270798052098048_n.jpg')}}" alt="">
+            <img class="max-h-36 rounded-full" src="{{ asset($user->profile->profile_img)}}" alt="profile img">
         </div>
         <div class='max-h-48 grid grid-rows-[2fr_2fr_6fr]'>
             <div class='flex flex-row gap-8 items-center'>
-                <p class="font-semibold text-xl"> Azialexander</p>
+                <p class="font-semibold text-xl"> {{$user->name}}</p>
                 <button class='text-sm px-4 py-2 border-2 border-blue-200 bg-blue-200 text-black rounded  focus:outline-none focus:ring-2 focus:ring-blue-400'>Profil bearbeiten</button>
                 <button class='text-sm px-4 py-2 border-2 border-black-200 bg-gray-200 text-black rounded  focus:outline-none focus:ring-2 focus:ring-gray-600'>Zum archiev</button>
             </div>
@@ -25,10 +25,9 @@
                     <p class="text-gray-500">Gefolgt</p>
                 </div>
             </div>            
-            <div class='flex flex-col mt-8 italic'>
-                <p>The way of life</p>
-                <p>I do some programming and sometimes a Dj</p>
-                <p>Check out my other Profile: @undergroundTechnoDrops</p>
+            <div class='flex flex-col mt-8'>
+                <span class="italic">{{$user->profile->description}}</span>
+                <span class="text-semibold">{{$user->profile->website}}</span>
             </div>
         </div>
     </div>
