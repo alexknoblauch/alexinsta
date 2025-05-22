@@ -51,7 +51,15 @@ class User extends Authenticatable
        return $this->hasOne(Profile::class);
     }
 
-    public function images(){
-        return $this->hasMany(Images::class);
+    public function posts(){
+        return $this->hasMany(Post::class)->orderBy('created_at', 'DESC');
+    }
+
+    public function followers(){
+        return $this->belongsToMany(User::class, 'followers', 'followed_id', 'follower_id');
+    }
+
+    public function followed(){
+        return $this->belongsToMany(User::class, 'followers', 'follower_id', 'followed_id');
     }
 }

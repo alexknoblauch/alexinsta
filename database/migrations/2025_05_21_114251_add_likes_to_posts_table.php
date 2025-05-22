@@ -11,14 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->string('img');
-            $table->text('description')->nullable();
-            $table->timestamps();
-
-            
+        Schema::table('posts', function (Blueprint $table) {
+            $table->unsignedInteger('likes')->nullable()->default(null);
+            $table->index('user_id');
         });
     }
 
@@ -27,6 +22,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropColumn('likes');
+            $table->dropColumn('user_id');
+        });
     }
 };

@@ -27,6 +27,8 @@ npm run dev
 cp .env.example .env
 php artisan key:generate
 php artisan serve
+php artisan storage:link
+
 
 
 ## 🕳 DOT ENV Einstellungen
@@ -37,3 +39,9 @@ DB_PORT=3306
 DB_DATABASE=alexinstagram
 DB_USERNAME=root
 DB_PASSWORD=
+
+
+## 🕳 Steps
+
+22.05 Dashboard and Profileview done. All Relations working with Conrollers, Routing and Views.
+        next: individual Users view, Follower Button and Likes.
